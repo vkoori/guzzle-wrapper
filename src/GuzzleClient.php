@@ -283,12 +283,12 @@ class GuzzleClient
                         ];
                     }
                 }
-            } elseif ($this->bodyFormat === 'json') {
-                $options['json'] = $this->data;
             } elseif ($this->bodyFormat === 'form_params') {
                 $options['form_params'] = $this->data;
+            } elseif ($this->bodyFormat === 'json') {
+                $options['json'] = $this->data;
             } else {
-                $options['form_params'] = $this->data;
+                $options['json'] = $this->data;
             }
         }
 
