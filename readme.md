@@ -1,0 +1,1 @@
+A flexible PHP-based API client built on Guzzle, supporting dynamic body formats, complex query parameters, retry logic with exponential backoff, and robust exception handling.
