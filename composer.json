@@ -1,5 +1,5 @@
 {
-    "name": "guzzle/wrapper",
+    "name": "vkoori/guzzle-wrapper",
     "description": "A flexible PHP-based API client built on Guzzle, supporting dynamic body formats, complex query parameters, retry logic with exponential backoff, and robust exception handling.",
     "keywords": [
         "Guzzle",
@@ -17,7 +17,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Guzzle\\Wrapper\\": "src/"
+            "Vkoori\\GuzzleWrapper\\": "src/"
         }
     },
     "minimum-stability": "dev",

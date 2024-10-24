@@ -1,6 +1,6 @@
 <?php
 
-namespace Guzzle\Wrapper;
+namespace Vkoori\GuzzleWrapper;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
