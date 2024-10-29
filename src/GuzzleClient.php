@@ -266,35 +266,36 @@ class GuzzleClient
         // Initialize Guzzle client
         $client = new Client($options);
 
+        $data = [];
         // Handle GET request
         if ($this->method === 'GET') {
             if ($this->data) {
-                $options['query'] = $this->data;
+                $data['query'] = $this->data;
             }
         } else {
             // Handle different body formats for non-GET requests
             if ($this->bodyFormat === 'multipart') {
-                $options['multipart'] = $this->files;
+                $data['multipart'] = $this->files;
                 if ($this->data) {
                     foreach ($this->data as $key => $value) {
-                        $options['multipart'][] = [
+                        $data['multipart'][] = [
                             'name' => $key,
                             'contents' => $value,
                         ];
                     }
                 }
             } elseif ($this->bodyFormat === 'form_params') {
-                $options['form_params'] = $this->data;
+                $data['form_params'] = $this->data;
             } elseif ($this->bodyFormat === 'json') {
-                $options['json'] = $this->data;
+                $data['json'] = $this->data;
             } else {
-                $options['json'] = $this->data;
+                $data['json'] = $this->data;
             }
         }
 
         for ($attempt = 0; $attempt <= $this->retries; $attempt++) {
             try {
-                return $client->request($this->method, $this->endpoint, $options);
+                return $client->request($this->method, $this->endpoint, $data);
             } catch (ClientException|ServerException|RequestException $e) {
                 if ($e->hasResponse()) {
                     return $e->getResponse();
